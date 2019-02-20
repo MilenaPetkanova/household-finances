@@ -13,6 +13,8 @@ export class CapitalComponent {
       this.capitals = result;
     }, error => console.error(error));
   }
+
+
 }
 
 interface Capital {
@@ -20,4 +22,5 @@ interface Capital {
   debitCardFirst: number;
   debitCardSecond: number;
   debitCardThird: number;
+  createdOnFormatted: string;
 }

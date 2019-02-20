@@ -15,5 +15,7 @@
         public decimal DebitCardThird { get; set; }
 
         public DateTime CreatedOn { get; set; }
+
+        public string CreatedOnFormatted => this.CreatedOn.ToString("MM/dd/yyyy");
     }
 }

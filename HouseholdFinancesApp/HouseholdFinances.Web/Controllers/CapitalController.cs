@@ -31,6 +31,7 @@
             return this._capitalService.GetAll();
         }
 
+
     }
 }
 

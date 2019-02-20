@@ -1,12 +1,11 @@
-<h1>Income</h1>
-
-<p>This component demonstrates fetching data from the server.</p>
+<h1>Capital</h1>
 
 <p *ngIf="!capitals"><em>Loading...</em></p>
 
 <table class='table table-striped' *ngIf="capitals">
   <thead>
     <tr>
+      <th>Date</th>
       <th>Cash</th>
       <th>First Debit Card</th>
       <th>Second Debit Card</th>
@@ -15,10 +14,12 @@
   </thead>
   <tbody>
     <tr *ngFor="let capital of capitals">
+      <td>{{ capital.createdOnFormatted }}</td>
       <td>{{ capital.cash }}</td>
       <td>{{ capital.debitCardFirst }}</td>
       <td>{{ capital.debitCardSecond }}</td>
       <td>{{ capital.debitCardThird }}</td>
     </tr>
   </tbody>
+  <button mat-button>Add</button>
 </table>

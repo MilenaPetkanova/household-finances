@@ -1,18 +1,18 @@
-using AutoMapper;
-using HouseholdFinances.Data;
-using HouseholdFinances.Services.DataServices;
-using HouseholdFinances.Services.DataServices.Contracts;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.SpaServices.AngularCli;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-
 namespace HouseholdFinances.Web
 {
+    using AutoMapper;
+    using HouseholdFinances.Data;
+    using HouseholdFinances.Services.DataServices;
+    using HouseholdFinances.Services.DataServices.Contracts;
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.HttpsPolicy;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.SpaServices.AngularCli;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
