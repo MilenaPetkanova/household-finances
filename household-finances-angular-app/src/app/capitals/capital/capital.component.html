@@ -1,26 +1,31 @@
-<form #form="ngForm" (submit)="onSubmit(form); form.reset()" autocomplete="off">
-  <div class="form-group">
-    <label>Cash</label>
-    <input name="Cash" #Cash="ngModel" [(ngModel)]="service.formData.Cash" class="form-control" required>
-    <div class="validation-error" *ngIf="Cash.invalid && Cash.touched">The field is required.</div>
-  </div>
+<form [formGroup]="reactiveForm">
   <div class="row">
     <div class="form-group col-md-6">
-      <label>DebitCardFirst</label>
-      <input name="DebitCardFirst" #DebitCardFirst="ngModel" [(ngModel)]="service.formData.DebitCardFirst" class="form-control">
-    </div>
-    <div class="form-group col-md-6">
-      <label>DebitCardSecond</label>
-      <input name="DebitCardSecond" #DebitCardSecond="ngModel" [(ngModel)]="service.formData.DebitCardSecond" class="form-control">
+      <label>Cash</label>
+      <input class="form-control" type="text" formControlName="cash">
+      <div class="validation-error"*ngIf="cash.invalid && cash.touched">This field is required.</div>
     </div>
   </div>
   <div class="row">
     <div class="form-group col-md-6">
-      <label>DebitCardThird</label>
-      <input name="DebitCardThird" #DebitCardThird="ngModel" [(ngModel)]="service.formData.DebitCardThird" class="form-control">
+      <label>Debit Card First</label>
+      <input class="form-control" type="text" formControlName="debitCardFirst">
+      <div class="validation-error"*ngIf="debitCardFirst.invalid && debitCardFirst.touched">This field is required.</div>
+    </div>
+    <div class="form-group col-md-6">
+      <label>Debit Card Second</label>
+      <input class="form-control" type="text" formControlName="debitCardSecond">
+      <div class="validation-error"*ngIf="debitCardSecond.invalid && debitCardSecond.touched">This field is required.</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <label>Debit Card Third</label>
+      <input class="form-control" type="text" formControlName="debitCardThird">
+      <div class="validation-error"*ngIf="debitCardThird.invalid && debitCardThird.touched">This field is required.</div>
     </div>
   </div>
   <div class="form-group">
-    <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">Submit</button>
+    <button class="btn btn-lg btn-block" type="submit" (click)="onSubmit()" [disabled]="!reactiveForm.valid">Submit</button>
   </div>
 </form>
