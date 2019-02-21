@@ -1,4 +1,4 @@
-﻿namespace FamilyIncomeExpences.Data.Models.Capital
+﻿namespace HouseholdFinances.Data.Models.Capital
 {
     public abstract class BaseCapital
     {

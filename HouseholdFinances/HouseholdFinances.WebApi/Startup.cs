@@ -4,7 +4,11 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using AutoMapper;
     using HouseholdFinances.Data;
+    using HouseholdFinances.Services.DataServices;
+    using HouseholdFinances.Services.DataServices.Contracts;
+    using HouseholdFinances.Web.Helpers.Mapper;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,11 +34,18 @@
             services.AddDbContext<HouseholdFinancesContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            //services.AddAutoMapper();
+            // Auto Mapper Configurations
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            //services.AddScoped<ICapitalService, CapitalService>();
+            services.AddScoped<ICapitalService, CapitalService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

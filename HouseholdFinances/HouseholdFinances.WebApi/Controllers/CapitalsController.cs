@@ -1,62 +1,93 @@
 ﻿namespace HouseholdFinances.WebApi.Controllers
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
+    using AutoMapper;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.EntityFrameworkCore;
+    using HouseholdFinances.Data;
     using HouseholdFinances.Services.DataServices.Contracts;
     using HouseholdFinances.Services.DataServices.Models.Capital;
-    using Microsoft.AspNetCore.Http;
-    using Microsoft.AspNetCore.Mvc;
+    using HouseholdFinances.Data.Models.Capital;
+    using FamilyIncomeExpences.Data.Models.Capital;
 
     [Route("api/[controller]")]
     [ApiController]
     public class CapitalsController : ControllerBase
     {
         private readonly ICapitalService _capitalService;
+        private readonly IMapper _mapper;
+        private readonly HouseholdFinancesContext _context;
 
-        public CapitalsController(ICapitalService capitalService)
+        public CapitalsController(ICapitalService capitalService, HouseholdFinancesContext context, IMapper mapper)
         {
             this._capitalService = capitalService;
+            this._context = context;
+            this._mapper = mapper;
         }
 
         // GET: api/Capitals
         [HttpGet]
-        public IEnumerable<CapitalDto> Get()
+        public IEnumerable<CapitalDto> GetAllCapitalItems()
         {
             return this._capitalService.GetAll();
         }
 
         // GET: api/Capitals/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        [HttpGet("{id}")]
+        public ActionResult<CapitalDto> GetCapitalItem(int id)
         {
-            return "value";
+            var capitalItem = this._capitalService.GetById(id);
+
+            if (capitalItem == null)
+            {
+                return NotFound();
+            }
+
+            return capitalItem;
         }
 
         // POST: api/Capitals
-        //[HttpPost]
-        //public void Post([FromBody] string value)
-        //{
-        //}
-
-        // POST: api/Capitals
         [HttpPost]
-        public CapitalDto Create(CapitalDto capital)
+        public async Task<ActionResult<CapitalDto>> CreateCapitalItem(CapitalDto capitalDto)
         {
-             this._capitalService.AddCapital();
+            var capital = this._mapper.Map<Capital>(capitalDto);
+            await _context.Capitals.AddAsync(capital);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetCapitalItem), new { id = capital.Id }, capital);
         }
 
         // PUT: api/Capitals/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> PutCapitalItem(int id, CapitalDto capitalDto)
         {
+            if (id != capitalDto.Id)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(capitalDto).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
 
-        // DELETE: api/ApiWithActions/5
+        // DELETE: api/Capitals/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> DeleteCapitalItem(int id)
         {
+            var capitalItem = await _context.Capitals.FindAsync(id);
+
+            if (capitalItem == null)
+            {
+                return NotFound();
+            }
+
+            _context.Capitals.Remove(capitalItem);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
     }
 }

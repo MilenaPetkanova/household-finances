@@ -20,25 +20,23 @@
             this._context = context;
         }
 
-        public void AddCapital(decimal cash, decimal debitCardFirst, decimal debitCardSecond, decimal debitCardThird)
-        {
-            var capitalDto = new CapitalDto
-            {
-                Cash = cash,
-                DebitCardFirst = debitCardFirst, 
-                DebitCardSecond = debitCardSecond,
-                DebitCardThird = debitCardThird,
-                CreatedOn = DateTime.Now
-            };
-
-            this._context.Capitals.Add(_mapper.Map<Capital>(capitalDto));
-            this._context.SaveChanges();
-        }
-
         public IEnumerable<CapitalDto> GetAll()
         {
             return this._context.Capitals
                 .Select(c => this._mapper.Map<CapitalDto>(c));
+        }
+
+        public CapitalDto GetById(int id)
+        {
+            return this._context.Capitals
+                .Where(c => c.Id.Equals(id))
+                .Select(c => this._mapper.Map<CapitalDto>(c))
+                .FirstOrDefault();
+        }
+
+        public void AddCapital(decimal cash, decimal debitCardFirst, decimal debitCardSecond, decimal debitCardThird)
+        {
+            
         }
     }
 }

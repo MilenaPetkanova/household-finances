@@ -1,7 +1,8 @@
-﻿using System;
-
-namespace FamilyIncomeExpences.Data.Models.Capital
+﻿namespace FamilyIncomeExpences.Data.Models.Capital
 {
+    using HouseholdFinances.Data.Models.Capital;
+    using System;
+
     public class Capital : BaseCapital
     {
         public int Id { get; set; }
