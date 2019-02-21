@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 import { CapitalService } from './../../shared/capital.service';
-import { NgForm } from '@angular/forms';
-import {FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-capital',
@@ -15,7 +14,7 @@ export class CapitalComponent implements OnInit {
   public service;
   public reactiveForm: FormGroup;
 
-  constructor(private _formBuilder: FormBuilder, private _capitalService: CapitalService) { }
+  constructor(private _formBuilder: FormBuilder, private _capitalService: CapitalService, private _toastr: ToastrService) { }
 
   ngOnInit() {
     this.service = this._capitalService;
@@ -32,19 +31,11 @@ export class CapitalComponent implements OnInit {
   get debitCardSecond() { return this.reactiveForm.get('debitCardSecond'); }
   get debitCardThird() { return this.reactiveForm.get('debitCardThird'); }
 
-  // onSubmit(form: NgForm) {
-  //   this.insertRecord(form);
-  // }
-
-  insertRecord(form: NgForm) {
-    this._capitalService.postCapital(form.value).subscribe(res => {
-      console.log(res);
-    });
-  }
-
   onSubmit() {
-    console.log(this.reactiveForm.value);
-
+    this._capitalService.postCapital(this.reactiveForm.value).subscribe(res => {
+      this._toastr.success('Record added successfully.', 'Capital register');
+      this.reactiveForm.reset();
+    });
   }
 }
 

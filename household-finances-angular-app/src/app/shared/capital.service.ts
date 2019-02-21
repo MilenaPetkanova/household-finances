@@ -11,9 +11,9 @@ export class CapitalService {
   formData: Capital;
   readonly rootUrl = 'https://localhost:5001/api';
 
-  constructor(private http: HttpClient) { }
+  constructor(private _http: HttpClient) { }
 
   postCapital(formData: Capital) {
-    return this.http.post(this.rootUrl + '/Capitals', formData);
+    return this._http.post(this.rootUrl + '/Capitals', formData);
   }
 }
