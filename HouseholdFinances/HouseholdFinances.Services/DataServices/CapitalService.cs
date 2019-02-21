@@ -5,9 +5,11 @@
     using HouseholdFinances.Data;
     using HouseholdFinances.Services.DataServices.Contracts;
     using HouseholdFinances.Services.DataServices.Models.Capital;
+    using Microsoft.EntityFrameworkCore;
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
 
     public class CapitalService : ICapitalService
     {
@@ -20,18 +22,19 @@
             this._context = context;
         }
 
-        public IEnumerable<CapitalDto> GetAll()
+        public async Task<IEnumerable<CapitalDto>> GetAll()
         {
-            return this._context.Capitals
-                .Select(c => this._mapper.Map<CapitalDto>(c));
+            return await this._context.Capitals
+                .Select(c => this._mapper.Map<CapitalDto>(c))
+                .ToListAsync();
         }
 
-        public CapitalDto GetById(int id)
+        public async Task<CapitalDto> GetById(int id)
         {
-            return this._context.Capitals
+            return await this._context.Capitals
                 .Where(c => c.Id.Equals(id))
                 .Select(c => this._mapper.Map<CapitalDto>(c))
-                .FirstOrDefault();
+                .FirstOrDefaultAsync();
         }
 
         public void AddCapital(decimal cash, decimal debitCardFirst, decimal debitCardSecond, decimal debitCardThird)

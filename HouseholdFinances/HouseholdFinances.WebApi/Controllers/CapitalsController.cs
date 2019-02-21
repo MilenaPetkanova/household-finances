@@ -28,23 +28,25 @@
 
         // GET: api/Capitals
         [HttpGet]
-        public IEnumerable<CapitalDto> GetAllCapitalItems()
+        public async Task<IEnumerable<CapitalDto>> GetAllCapitalItems()
         {
-            return this._capitalService.GetAll();
+            var allCapitalDtos = await this._capitalService.GetAll();
+
+            return allCapitalDtos;
         }
 
         // GET: api/Capitals/5
         [HttpGet("{id}")]
-        public ActionResult<CapitalDto> GetCapitalItem(int id)
+        public async Task<ActionResult<CapitalDto>> GetCapitalItem(int id)
         {
-            var capitalItem = this._capitalService.GetById(id);
+            var capitalDto = await this._capitalService.GetById(id);
 
-            if (capitalItem == null)
+            if (capitalDto == null)
             {
                 return NotFound();
             }
 
-            return capitalItem;
+            return capitalDto;
         }
 
         // POST: api/Capitals
