@@ -45,19 +45,6 @@
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            //services.AddCors(options =>
-            //{
-            //    options.AddPolicy("AllowAll",
-            //        builder =>
-            //        {
-            //            builder
-            //            .AllowAnyOrigin()
-            //            .AllowAnyMethod()
-            //            .AllowAnyHeader()
-            //            .AllowCredentials();
-            //        });
-            //});
-
             services.AddScoped<ICapitalService, CapitalService>();
         }
 
@@ -74,15 +61,24 @@
                 app.UseHsts();
             }
 
-
             //app.UseCors(
             //    options => options.WithOrigins("http://localhost:4200").AllowAnyMethod()
             //);
+
             app.UseCors(builder => builder
                 .WithOrigins("http://localhost:4200")
                 .AllowAnyMethod()
                 .AllowAnyHeader()
                 .AllowCredentials());
+
+            app.Use(async (ctx, next) =>
+            {
+                await next();
+                if (ctx.Response.StatusCode == 204)
+                {
+                    ctx.Response.ContentLength = 0;
+                }
+            });
 
             app.UseHttpsRedirection();
             app.UseMvc();
