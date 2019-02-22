@@ -1,9 +1,5 @@
-.form-group>input{
-  font-weight: bolder;
-}
-.form-group>label{
-  font-weight: lighter;
-}
+.form-group>input{ font-weight: bolder; }
+.form-group>label{ font-weight: lighter; }
 
 button[type="submit"]{
   background-color: #67dfd4;

@@ -1,6 +1,9 @@
 export class Capital {
-    Cash: number;
-    DebitCardFirst: number;
-    DebitCardSecond: number;
-    DebitCardThird: number;
-}
+    cash: number;
+    debitCardFirst: number;
+    debitCardSecond: number;
+    debitCardThird: number;
+    id: number;
+    createdOn: string;
+    createdOnFormatted: string;
+  }

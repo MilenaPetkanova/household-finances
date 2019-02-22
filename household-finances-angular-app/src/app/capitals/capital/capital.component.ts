@@ -11,14 +11,12 @@ import { CapitalService } from './../../shared/capital.service';
 })
 export class CapitalComponent implements OnInit {
 
-  public service;
-  public reactiveForm: FormGroup;
+  capitalForm: FormGroup;
 
   constructor(private _formBuilder: FormBuilder, private _capitalService: CapitalService, private _toastr: ToastrService) { }
 
   ngOnInit() {
-    this.service = this._capitalService;
-    this.reactiveForm = this._formBuilder.group({
+    this.capitalForm = this._formBuilder.group({
       cash: [null, Validators.required],
       debitCardFirst: [null, Validators.required],
       debitCardSecond: [null, Validators.required],
@@ -26,16 +24,15 @@ export class CapitalComponent implements OnInit {
     });
   }
 
-  get cash() { return this.reactiveForm.get('cash'); }
-  get debitCardFirst() { return this.reactiveForm.get('debitCardFirst'); }
-  get debitCardSecond() { return this.reactiveForm.get('debitCardSecond'); }
-  get debitCardThird() { return this.reactiveForm.get('debitCardThird'); }
+  get cash() { return this.capitalForm.get('cash'); }
+  get debitCardFirst() { return this.capitalForm.get('debitCardFirst'); }
+  get debitCardSecond() { return this.capitalForm.get('debitCardSecond'); }
+  get debitCardThird() { return this.capitalForm.get('debitCardThird'); }
 
   onSubmit() {
-    this._capitalService.postCapital(this.reactiveForm.value).subscribe(res => {
+    this._capitalService.postCapital(this.capitalForm.value).subscribe(res => {
       this._toastr.success('Record added successfully.', 'Capital register');
-      this.reactiveForm.reset();
+      this.capitalForm.reset();
     });
   }
 }
-
