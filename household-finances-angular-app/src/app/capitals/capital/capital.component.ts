@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
 import { CapitalService } from './../../shared/capital.service';
+import { Capital } from './../../shared/capital.model';
 
 @Component({
   selector: 'app-capital',
@@ -11,28 +12,21 @@ import { CapitalService } from './../../shared/capital.service';
 })
 export class CapitalComponent implements OnInit {
 
-  capitalForm: FormGroup;
+  public capital: Capital;
 
-  constructor(private _formBuilder: FormBuilder, private _capitalService: CapitalService, private _toastr: ToastrService) { }
+  constructor(private _capitalService: CapitalService, private _toastr: ToastrService) { }
 
   ngOnInit() {
-    this.capitalForm = this._formBuilder.group({
-      cash: [null, Validators.required],
-      debitCardFirst: [null, Validators.required],
-      debitCardSecond: [null, Validators.required],
-      debitCardThird: [null, Validators.required]
-    });
+    this.capital = new Capital();
   }
 
-  get cash() { return this.capitalForm.get('cash'); }
-  get debitCardFirst() { return this.capitalForm.get('debitCardFirst'); }
-  get debitCardSecond() { return this.capitalForm.get('debitCardSecond'); }
-  get debitCardThird() { return this.capitalForm.get('debitCardThird'); }
+  resetForm() {
+  }
 
-  onSubmit() {
-    this._capitalService.postCapital(this.capitalForm.value).subscribe(res => {
+  onSubmit(capitalForm?: NgForm) {
+    this.capital = capitalForm.value;
+    this._capitalService.postCapital(this.capital).subscribe(res => {
       this._toastr.success('Record added successfully.', 'Capital register');
-      this.capitalForm.reset();
     });
   }
 }

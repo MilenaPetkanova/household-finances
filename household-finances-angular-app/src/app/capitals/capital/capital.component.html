@@ -1,29 +1,37 @@
-<form [formGroup]="capitalForm">
+<form (ngSubmit)="onSubmit()" #capitalForm="ngForm" autocomplete="off">
   <div class="form-group">
     <label>Cash</label>
-    <input class="form-control" type="text" formControlName="cash">
-    <div class="validation-error"*ngIf="cash.invalid && cash.touched" required>This field is required.</div>
+    <input [(ngModel)]="capital.cash" name="cash" #cash="ngModel" class="form-control" required>
+    <div [hidden]="cash.valid || cash.pristine" class="alert alert-danger">
+      This field is required.
+    </div>
   </div>
 
   <div class="form-group">
-    <label>Debit Card First</label>
-    <input class="form-control" type="text" formControlName="debitCardFirst">
-    <div class="validation-error"*ngIf="debitCardFirst.invalid && debitCardFirst.touched">This field is required.</div>
+    <label for="debitCardFirst">First Debit Card</label>
+    <input [(ngModel)]="capital.debitCardFirst" name="debitCardFirst" #debitCardFirst="ngModel" class="form-control" required>
+    <div [hidden]="debitCardFirst.valid || debitCardFirst.pristine" class="alert alert-danger">
+      This field is required.
+    </div>
   </div>
 
   <div class="form-group">
-    <label>Debit Card Second</label>
-    <input class="form-control" type="text" formControlName="debitCardSecond">
-    <div class="validation-error"*ngIf="debitCardSecond.invalid && debitCardSecond.touched">This field is required.</div>
+    <label for="debitCardSecond">Second Debit Card</label>
+    <input [(ngModel)]="capital.debitCardSecond" name="debitCardSecond" #debitCardSecond="ngModel" class="form-control" required>
+    <div [hidden]="debitCardSecond.valid || debitCardSecond.pristine" class="alert alert-danger">
+      This field is required.
+    </div>
   </div>
 
   <div class="form-group">
-    <label>Debit Card Third</label>
-    <input class="form-control" type="text" formControlName="debitCardThird">
-    <div class="validation-error"*ngIf="debitCardThird.invalid && debitCardThird.touched">This field is required.</div>
+    <label for="debitCardThird">Third Debit Card</label>
+    <input [(ngModel)]="capital.debitCardThird" name="debitCardThird" #debitCardThird="ngModel" class="form-control" required>
+    <div [hidden]="debitCardThird.valid || debitCardThird.pristine" class="alert alert-danger">
+      This field is required.
+    </div>
   </div>
 
   <div class="form-group">
-    <button class="btn btn-lg btn-block" type="submit" (click)="onSubmit()" [disabled]="!capitalForm.valid">SUBMIT</button>
+    <button type="submit" class="btn btn-lg btn-block" [disabled]="!capitalForm.form.valid" (click)="onSubmit(capitalForm); capitalForm.reset();">SUBMIT</button>
   </div>
 </form>

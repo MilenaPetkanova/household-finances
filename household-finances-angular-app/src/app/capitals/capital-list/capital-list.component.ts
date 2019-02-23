@@ -19,10 +19,11 @@ export class CapitalListComponent implements OnInit {
   ngOnInit() {
     this._capitalService.refreshList()
       .subscribe(data => {
-        this.capitals = data;
-      }, err => {
-        console.log(err);
-      });
+          this._capitalService.capitalsList = data;
+          this.capitals = this._capitalService.capitalsList;
+        }, err => {
+          console.log(err);
+        });
   }
 
   populateForm(capital: Capital) {
@@ -30,20 +31,30 @@ export class CapitalListComponent implements OnInit {
   }
 
   onDelete(id: number) {
+  if(confirm('Are you sure you want to delete this record?')) {
     this._capitalService.deleteCapital(id)
       .subscribe(res => {
-        console.log('ondelete' + res);
+        this._toastr.warning('Succesfully deleted.', 'Capital delete');
         this._capitalService.refreshList();
-        this._toastr.warning('Deleted seccessfully.');
       }, err => {
         console.log(err);
       });
+  }
 
-      this._capitalService.refreshList()
-      .subscribe(data => {
-        this.capitals = data;
-      }, err => {
-        console.log(err);
-      });
+    // this._capitalService.deleteCapital(id)
+    //   .subscribe(res => {
+    //     console.log('ondelete' + res);
+    //     this._capitalService.refreshList();
+    //     this._toastr.warning('Deleted seccessfully.');
+    //   }, err => {
+    //     console.log(err);
+    //   });
+
+      // this._capitalService.refreshList()
+      // .subscribe(data => {
+      //   this.capitals = data;
+      // }, err => {
+      //   console.log(err);
+      // });
   }
 }
