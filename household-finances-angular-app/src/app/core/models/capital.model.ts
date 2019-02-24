@@ -1,9 +1,10 @@
 export class Capital {
+  id: number;
   cash: number;
   debitCardFirst: number;
   debitCardSecond: number;
   debitCardThird: number;
-  id: number;
+  total: number;
   createdOn: string;
   createdOnFormatted: string;
 }

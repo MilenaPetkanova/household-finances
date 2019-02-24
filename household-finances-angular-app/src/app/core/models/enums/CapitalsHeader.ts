@@ -3,5 +3,6 @@ export enum CapitalsHeader {
   Second = 'Second',
   Third = 'Third',
   Fourth = 'Fourth',
+  Total = 'Total',
   Date = 'Date',
 }

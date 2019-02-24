@@ -1,5 +1,6 @@
 /* body */
 body { background-color: #000; color: #ffffff; }
+h2 { font-size: 28px;  margin-bottom: 35px; }
 
 /* wrappers */
 .contrainer { background-color: #000; color: #ffffff; }
@@ -8,26 +9,34 @@ body { background-color: #000; color: #ffffff; }
 .jumbotron > h1 { margin-bottom: 35px; }
 
 
+/* nav */
+.navbar a { color: #ffffff; font-weight: 700; }
+.navbar a:hover { text-decoration: none; background: linear-gradient(to right,#ff8a00,#da1b60); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; padding-bottom: 8px; }
+.navbar-nav a.active { border-bottom: 2px solid #da1b60; background: linear-gradient(to right,#ff8a00,#da1b60); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; padding-bottom: 8px; }
+.navbar-nav { display: flex; flex-direction: row; justify-content: space-between; width: 33%; padding-right: 34px; }
+
+
 /* tables */
-.table { background-color: #000; color: #ffffff; }
-.table-hover tbody tr.capitals-header:hover { background-color: #000; color: #fff; }
-.table-hover tbody tr.capital-record:hover { cursor: pointer; background-color: #ffffff; color: #67dfd4; }
+.table { background-color: #fff; color: #000; border-radius: .25rem; }
+.table-hover tbody tr:hover { cursor: pointer; background-color: #000; color: #fff }
+.table tr:first-child { background-color: #000; background: linear-gradient(to right,#ff8a00,#da1b60); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.table tr:first-child:hover { cursor: default; }
 .table td { border-top: none; }
 .table th { border-top: none; }
+.btn-outline-danger { border: none; color: #fff; }
+.btn-outline-danger:hover { color: #da1b60; background-color: transparent; }
 
 
 /* forms */
-.form-group > label { font-weight: lighter; }
-.form-group > input { font-weight: bolder; }
 .form-group:last-child { margin-top: 2rem; }
 .btn-outline-secondary { color: #fff; border-color: #fff; }
 
-input.ng-touched.ng-invalid { border-color: #dc3545; }
-div.validation-error { width: 100%; margin-top: .25rem; font-size: 80%; color: #dc3545; }
+.alert { padding: 0; }
+.alert-danger { color: #da1b60; background-color: transparent; border: none; }
+input.ng-touched.ng-invalid { border: 2px solid #da1b60; }
 
-
-button[type="submit"] { background-color: #67dfd4; color: #fff; }
-/* button[type="submit"]:hover { background-color: #fff; color: #67dfd4; } */
+button[type="submit"] { background: linear-gradient(to right,#ff8a00,#da1b60); color: #000; }
+button[type="submit"]:hover { color: #fff; }
 button[disabled]:hover { cursor: none; color: #ffffff; }
 
 /* toastr */

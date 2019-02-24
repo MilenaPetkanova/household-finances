@@ -1,14 +1,15 @@
 <div class="container">
   <table class="table table-hover">
     <tr class="capitals-header">
-      <td *ngFor="let header of capitalsHeader">{{ header }}</td>
+      <th *ngFor="let header of capitalsHeader">{{ header }}</th>
     </tr>
     <tr class="capital-record" *ngFor="let capital of capitals">
+      <td (click)="populateForm(capital)">{{ capital.createdOnFormatted }}</td>
       <td (click)="populateForm(capital)">{{ capital.cash }}</td>
       <td (click)="populateForm(capital)">{{ capital.debitCardFirst }}</td>
       <td (click)="populateForm(capital)">{{ capital.debitCardSecond }}</td>
       <td (click)="populateForm(capital)">{{ capital.debitCardThird }}</td>
-      <td (click)="populateForm(capital)">{{ capital.createdOnFormatted }}</td>
+      <td (click)="populateForm(capital)">{{ capital.total }}</td>
       <td (click)="onDelete(capital.id)"><button class="btn btn-sm btn-outline-danger">X</button></td>
     </tr>
   </table>
