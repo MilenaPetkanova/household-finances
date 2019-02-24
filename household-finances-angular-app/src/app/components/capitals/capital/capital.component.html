@@ -1,0 +1,49 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit()" #capitalForm="ngForm" autocomplete="off">
+    <div class="form-group">
+      <label>{{ capitalsHeader[0] }}</label>
+      <input [(ngModel)]="capital.cash" name="cash" #cash="ngModel" class="form-control" required>
+      <div [hidden]="cash.valid || cash.pristine" class="alert alert-danger">
+        This field is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="debitCardFirst">{{ capitalsHeader[1] }}</label>
+      <input [(ngModel)]="capital.debitCardFirst" name="debitCardFirst" #debitCardFirst="ngModel" class="form-control" required>
+      <div [hidden]="debitCardFirst.valid || debitCardFirst.pristine" class="alert alert-danger">
+        This field is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="debitCardSecond">{{ capitalsHeader[2] }}</label>
+      <input [(ngModel)]="capital.debitCardSecond" name="debitCardSecond" #debitCardSecond="ngModel" class="form-control" required>
+      <div [hidden]="debitCardSecond.valid || debitCardSecond.pristine" class="alert alert-danger">
+        This field is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="debitCardThird">{{ capitalsHeader[3] }}</label>
+      <input [(ngModel)]="capital.debitCardThird" name="debitCardThird" #debitCardThird="ngModel" class="form-control" required>
+      <div [hidden]="debitCardThird.valid || debitCardThird.pristine" class="alert alert-danger">
+        This field is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="dp">{{ capitalsHeader[4] }}</label>
+      <div class="input-group">
+        <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar fa fa-calendar" (click)="d.toggle()" type="button"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-lg btn-block" [disabled]="!capitalForm.form.valid" (click)="onSubmit(capitalForm); capitalForm.reset();">SUBMIT</button>
+    </div>
+  </form>
+</div>

@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Capital } from './capital.model';
 
+import { Capital } from '../models/capital.model';
+import { CapitalsHeader } from './../models/enums/CapitalsHeader';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CapitalService {
+
+  capitalsHeader = [CapitalsHeader.First, CapitalsHeader.Second, CapitalsHeader.Third, CapitalsHeader.Fourth, CapitalsHeader.Date];
 
   public formData: Capital;
   public capitalsList: Capital[];

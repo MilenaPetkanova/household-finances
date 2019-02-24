@@ -1,14 +1,38 @@
-.form-group>input { font-weight: bolder; }
-.form-group>label { font-weight: lighter; }
+/* body */
+body { background-color: #000; color: #ffffff; }
 
-button[type="submit"] { background-color: #67dfd4; color: #fff; }
+/* wrappers */
+.contrainer { background-color: #000; color: #ffffff; }
 
-.jumbotron { background-color: #fff; padding-top: 32px; }
+.jumbotron { background-color: #000; color: #ffffff; }
+.jumbotron > h1 { margin-bottom: 35px; }
 
-table tr:hover { cursor: pointer; }
+
+/* tables */
+.table { background-color: #000; color: #ffffff; }
+.table-hover tbody tr.capitals-header:hover { background-color: #000; color: #fff; }
+.table-hover tbody tr.capital-record:hover { cursor: pointer; background-color: #ffffff; color: #67dfd4; }
+.table td { border-top: none; }
+.table th { border-top: none; }
+
+
+/* forms */
+.form-group > label { font-weight: lighter; }
+.form-group > input { font-weight: bolder; }
+.form-group:last-child { margin-top: 2rem; }
+.btn-outline-secondary { color: #fff; border-color: #fff; }
 
 input.ng-touched.ng-invalid { border-color: #dc3545; }
 div.validation-error { width: 100%; margin-top: .25rem; font-size: 80%; color: #dc3545; }
 
+
+button[type="submit"] { background-color: #67dfd4; color: #fff; }
+/* button[type="submit"]:hover { background-color: #fff; color: #67dfd4; } */
+button[disabled]:hover { cursor: none; color: #ffffff; }
+
+/* toastr */
 #toast-container > div { opacity:1; }
+
+
+
 
