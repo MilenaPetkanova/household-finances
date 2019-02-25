@@ -1,12 +1,37 @@
 <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Household Finance Manager</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a routerLink="#" routerLinkActive="active" class="expenses">Expences</a></li>
+      <li><a routerLink="/capitals" routerLinkActive="active" class="capital">Capital</a></li>
+      <li><a routerLink="#" routerLinkActive="active" class="statistics">Statistics</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- Unseccuessful responsive view -->
+
+<!-- <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navHeaderCollase">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
         <a class="navbar-brand" href="#">Household Finance Manager</a>
       </div>
-      <ul class="nav navbar-nav">
-        <li><a routerLink="/capitals" routerLinkActive="active">Capital</a></li>
-        <li><a routerLink="#" routerLinkActive="active">Expences</a></li>
-        <li><a routerLink="#" routerLinkActive="active">Statistics</a></li>
-      </ul>
+
+      <div class="collapse navbar-collapse" id="navHeaderCollase">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a routerLink="/capitals" routerLinkActive="active">Capital</a></li>
+          <li><a routerLink="#" routerLinkActive="active">Expences</a></li>
+          <li><a routerLink="#" routerLinkActive="active">Statistics</a></li>
+        </ul>
+      </div>
     </div>
-  </nav>
+  </nav> -->

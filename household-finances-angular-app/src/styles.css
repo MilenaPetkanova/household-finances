@@ -2,40 +2,70 @@
 body { background-color: #000; color: #ffffff; }
 h2 { font-size: 28px;  margin-bottom: 35px; }
 
-/* wrappers */
+
+/* container */
 .contrainer { background-color: #000; color: #ffffff; }
 
+
+/* jumbotron */
 .jumbotron { background-color: #000; color: #ffffff; }
 .jumbotron > h1 { margin-bottom: 35px; }
 
 
-/* nav */
+/* gradients and colors */
+.expnses-main-color { color: #da1b60; }
+.expenses-gradient { background: linear-gradient(to left,#ff8a00,#da1b60); }
+.expenses-text-gradient { background: linear-gradient(to left,#ff8a00,#da1b60); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+.capital-main-color { color: #13547a; }
+.capital-gradient { background: linear-gradient(to left,#13547a, #80d0c7); }
+.capital-text-gradient { background: linear-gradient(to left,#13547a, #80d0c7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+.statistics-main-color { color: #764ba2; }
+.statistics-gradient { background: linear-gradient(to left,#667eea, #764ba2); }
+.statistics-text-gradient { background: linear-gradient(to left,#667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+
+/* navbar */
 .navbar a { color: #ffffff; font-weight: 700; }
-.navbar a:hover { text-decoration: none; background: linear-gradient(to right,#ff8a00,#da1b60); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; padding-bottom: 8px; }
-.navbar-nav a.active { border-bottom: 2px solid #da1b60; background: linear-gradient(to right,#ff8a00,#da1b60); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; padding-bottom: 8px; }
+
 .navbar-nav { display: flex; flex-direction: row; justify-content: space-between; width: 33%; padding-right: 34px; }
+
+.navbar-nav a.expenses:hover { background: linear-gradient(to left,#ff8a00,#da1b60); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.navbar-nav a.capital.active { background: linear-gradient(to left,#ff8a00,#da1b60); -webkit-background-clip: text; -webkit-text-fill-color: transparent; border-bottom: 3px solid #da1b60; padding-bottom: 8px; }
+
+.navbar-nav a.capital:hover { background: linear-gradient(to left,#13547a, #80d0c7); -webkit-background-clip: text; -webkit-text-fill-color: transparent;  }
+.navbar-nav a.capital.active { background: linear-gradient(to left,#13547a, #80d0c7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; border-bottom: 3px solid #13547a; padding-bottom: 8px; }
+
+.navbar-nav a.statistics:hover { background: linear-gradient(to left,#667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent;  }
+.navbar-nav a.statistics.active { background: linear-gradient(to left,#667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; border-bottom: 3px solid #764ba2; padding-bottom: 8px; }
+
 
 
 /* tables */
 .table { background-color: #fff; color: #000; border-radius: .25rem; }
 .table-hover tbody tr:hover { cursor: pointer; background-color: #000; color: #fff }
-.table tr:first-child { background-color: #000; background: linear-gradient(to right,#ff8a00,#da1b60); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.table tr:first-child { background-color: #000; }
 .table tr:first-child:hover { cursor: default; }
 .table td { border-top: none; }
 .table th { border-top: none; }
 .btn-outline-danger { border: none; color: #fff; }
-.btn-outline-danger:hover { color: #da1b60; background-color: transparent; }
+.btn-outline-danger:hover { color: #13547a; background-color: transparent; }
 
 
 /* forms */
 .form-group:last-child { margin-top: 2rem; }
 .btn-outline-secondary { color: #fff; border-color: #fff; }
 
-.alert { padding: 0; }
-.alert-danger { color: #da1b60; background-color: transparent; border: none; }
-input.ng-touched.ng-invalid { border: 2px solid #da1b60; }
 
-button[type="submit"] { background: linear-gradient(to right,#ff8a00,#da1b60); color: #000; }
+/* form alerts */
+.alert { padding: 0; }
+.alert-danger { background-color: transparent; border: none; }
+input.capital-main-color.ng-touched.ng-invalid { border: 2px solid #13547a; }
+
+
+/* buttons */
+button[type="submit"] { color: #000; }
 button[type="submit"]:hover { color: #fff; }
 button[disabled]:hover { cursor: none; color: #ffffff; }
 

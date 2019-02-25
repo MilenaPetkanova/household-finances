@@ -35,11 +35,17 @@ export class CapitalComponent implements OnInit {
 
   insertRecord(capitalForm) {
     this._capitalService.formData = capitalForm.value;
+
+    const currentDate = capitalForm.value.dp.year.toString() + '-' +
+     capitalForm.value.dp.month.toString() + '-' + capitalForm.value.dp.day.toString();
+
+    this._capitalService.formData.createdOn = currentDate;
+
     this.capital = this._capitalService.formData;
+
     this._capitalService.postCapital(this.capital).subscribe(res => {
       this._toastr.success('Record added successfully.', 'Capital register');
       this.resetForm(capitalForm);
     });
-
   }
 }

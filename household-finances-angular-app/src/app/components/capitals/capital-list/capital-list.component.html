@@ -1,16 +1,28 @@
 <div class="container">
   <table class="table table-hover">
-    <tr class="capitals-header">
-      <th *ngFor="let header of capitalsHeader">{{ header }}</th>
+    <tr class="capitals-header capital-text-gradient">
+      <!-- <th *ngFor="let header of capitalsHeader">{{ header }}</th> -->
+      <th></th>
+      <th>{{ capitalsHeader[0] }}</th>
+      <th>{{ capitalsHeader[1] }}</th>
+      <th></th>
+      <th>{{ capitalsHeader[2] }}</th>
+      <th>{{ capitalsHeader[3] }}</th>
+      <th>{{ capitalsHeader[4] }}</th>
+      <th>{{ capitalsHeader[5] }}</th>
     </tr>
     <tr class="capital-record" *ngFor="let capital of capitals">
+      <td></td>
       <td (click)="populateForm(capital)">{{ capital.createdOnFormatted }}</td>
+      <td (click)="populateForm(capital)">{{ capital.total }}</td>
+      <td></td>
       <td (click)="populateForm(capital)">{{ capital.cash }}</td>
       <td (click)="populateForm(capital)">{{ capital.debitCardFirst }}</td>
       <td (click)="populateForm(capital)">{{ capital.debitCardSecond }}</td>
       <td (click)="populateForm(capital)">{{ capital.debitCardThird }}</td>
-      <td (click)="populateForm(capital)">{{ capital.total }}</td>
-      <td (click)="onDelete(capital.id)"><button class="btn btn-sm btn-outline-danger">X</button></td>
+      <td (click)="onDelete(capital.id)"><button class="btn btn-sm btn-outline-danger">
+        <i class="fas fa-trash-alt"></i>
+      </button></td>
     </tr>
   </table>
 </div>

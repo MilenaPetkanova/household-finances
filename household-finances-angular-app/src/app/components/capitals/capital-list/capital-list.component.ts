@@ -33,7 +33,7 @@ export class CapitalListComponent implements OnInit {
   }
 
   onDelete(id: number) {
-  if(confirm('Are you sure you want to delete this record?')) {
+  if (confirm('Are you sure you want to delete this record?')) {
     this._capitalService.deleteCapital(id)
       .subscribe(res => {
         this._toastr.warning('Succesfully deleted.', 'Capital delete');

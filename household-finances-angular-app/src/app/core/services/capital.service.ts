@@ -10,7 +10,7 @@ import { CapitalsHeader } from './../models/enums/CapitalsHeader';
 })
 export class CapitalService {
 
-  capitalsHeader = [CapitalsHeader.Date, CapitalsHeader.First, CapitalsHeader.Second, CapitalsHeader.Third, CapitalsHeader.Fourth, CapitalsHeader.Total];
+  capitalsHeader = [ CapitalsHeader.Date, CapitalsHeader.Total, CapitalsHeader.First, CapitalsHeader.Second, CapitalsHeader.Third, CapitalsHeader.Fourth ];
 
   public formData: Capital;
   public capitalsList: Capital[];
