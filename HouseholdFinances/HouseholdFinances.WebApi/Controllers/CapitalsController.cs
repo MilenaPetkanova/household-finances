@@ -30,7 +30,7 @@
         [HttpGet]
         public async Task<IEnumerable<CapitalDto>> GetAllCapitalItems()
         {
-            var allCapitalDtos = await this._capitalService.GetAll();
+            var allCapitalDtos = await this._capitalService.GetAllAsync();
 
             return allCapitalDtos;
         }
@@ -39,7 +39,7 @@
         [HttpGet("{id}")]
         public async Task<ActionResult<CapitalDto>> GetCapitalItem(int id)
         {
-            var capitalDto = await this._capitalService.GetById(id);
+            var capitalDto = await this._capitalService.GetByIdAsync(id);
 
             if (capitalDto == null)
             {
@@ -53,11 +53,14 @@
         [HttpPost]
         public async Task<ActionResult<CapitalDto>> CreateCapitalItem(CapitalDto capitalDto)
         {
-            var capital = this._mapper.Map<Capital>(capitalDto);
-            await _context.Capitals.AddAsync(capital);
-            await _context.SaveChangesAsync();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-            return CreatedAtAction(nameof(GetCapitalItem), new { id = capital.Id }, capital);
+            await Task.Run(() => this._capitalService.AddCapital(capitalDto));
+
+            return CreatedAtAction(nameof(GetCapitalItem), new { id = capitalDto.Id }, capitalDto);
         }
 
         // PUT: api/Capitals/5

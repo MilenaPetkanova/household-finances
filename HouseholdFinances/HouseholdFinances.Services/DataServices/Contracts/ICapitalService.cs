@@ -6,10 +6,10 @@ namespace HouseholdFinances.Services.DataServices.Contracts
 {
     public interface ICapitalService
     {
-        Task<IEnumerable<CapitalDto>> GetAll();
+        Task<IEnumerable<CapitalDto>> GetAllAsync();
 
-        Task<CapitalDto> GetById(int id);
+        Task<CapitalDto> GetByIdAsync(int id);
 
-        void AddCapital(decimal cash, decimal debitCardFirst, decimal debitCardSecond, decimal debitCardThird);
+        void AddCapital(CapitalDto capitalDto);
     }
 }

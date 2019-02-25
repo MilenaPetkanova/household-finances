@@ -22,14 +22,15 @@
             this._context = context;
         }
 
-        public async Task<IEnumerable<CapitalDto>> GetAll()
+        public async Task<IEnumerable<CapitalDto>> GetAllAsync()
         {
             return await this._context.Capitals
                 .Select(c => this._mapper.Map<CapitalDto>(c))
+                .OrderBy(c => c.CreatedOn)
                 .ToListAsync();
         }
 
-        public async Task<CapitalDto> GetById(int id)
+        public async Task<CapitalDto> GetByIdAsync(int id)
         {
             return await this._context.Capitals
                 .Where(c => c.Id.Equals(id))
@@ -37,9 +38,11 @@
                 .FirstOrDefaultAsync();
         }
 
-        public void AddCapital(decimal cash, decimal debitCardFirst, decimal debitCardSecond, decimal debitCardThird)
+        public void AddCapital(CapitalDto capitalDto)
         {
-            
+            var capital = this._mapper.Map<Capital>(capitalDto);
+            _context.Capitals.AddAsync(capital);
+            _context.SaveChangesAsync();
         }
     }
 }

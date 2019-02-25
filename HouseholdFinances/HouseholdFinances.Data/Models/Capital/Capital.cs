@@ -15,6 +15,8 @@
 
         public override decimal DebitCardThird { get; set; }
 
+        public decimal Total { get; set; }
+
         public DateTime CreatedOn { get; set; }
     }
 }

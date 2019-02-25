@@ -14,8 +14,10 @@
 
         public decimal DebitCardThird { get; set; }
 
+        public decimal Total => this.Cash + this.DebitCardFirst + this.DebitCardSecond + this.DebitCardThird;
+            
         public DateTime CreatedOn { get; set; }
 
-        public string CreatedOnFormatted => this.CreatedOn.ToString("MM/dd/yyyy");
+        public string CreatedOnFormatted => this.CreatedOn.ToString("dd/MM/yyyy");
     }
 }
