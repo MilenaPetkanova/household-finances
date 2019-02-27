@@ -5,6 +5,6 @@ export class Capital {
   debitCardSecond: number;
   debitCardThird: number;
   total: number;
-  createdOn: Date;
+  createdOn: string;
   createdOnFormatted: string;
 }
