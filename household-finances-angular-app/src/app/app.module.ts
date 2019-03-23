@@ -18,6 +18,7 @@ import { ExpenseComponent } from './components/expenses/expense/expense.componen
 import { ExpensesListComponent } from './components/expenses/expenses-list/expenses-list.component';
 
 import { CapitalService } from './core/services/capital.service';
+import { ExpenseService } from './core/services/expense.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { CapitalService } from './core/services/capital.service';
     NgbModule.forRoot(),
     AppRoutingModule,
   ],
-  providers: [CapitalService],
+  providers: [CapitalService, ExpenseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

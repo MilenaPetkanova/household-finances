@@ -13,8 +13,6 @@ import { CapitalsHeader } from './../../../core/models/enums/CapitalsHeader';
   styleUrls: ['./capital.component.css']
 })
 export class CapitalComponent implements OnInit {
-
-  model;
   capital: Capital;
   capitalsHeader: CapitalsHeader[] = this._capitalService.capitalsHeader;
 
