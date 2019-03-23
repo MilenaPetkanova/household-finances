@@ -1,15 +1,14 @@
 ﻿namespace HouseholdFinances.Services.DataServices
 {
-    using AutoMapper;
-    using FamilyIncomeExpences.Data.Models.Capital;
-    using HouseholdFinances.Data;
-    using HouseholdFinances.Services.DataServices.Contracts;
-    using HouseholdFinances.Services.DataServices.Models.Capital;
-    using Microsoft.EntityFrameworkCore;
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using Microsoft.EntityFrameworkCore;
+    using AutoMapper;
+    using HouseholdFinances.Data.Models.Capital;
+    using HouseholdFinances.Data;
+    using HouseholdFinances.Services.DataServices.Contracts;
+    using HouseholdFinances.Services.DataServices.Models.Capital;
 
     public class CapitalService : ICapitalService
     {

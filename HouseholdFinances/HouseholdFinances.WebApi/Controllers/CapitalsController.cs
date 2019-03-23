@@ -8,8 +8,6 @@
     using HouseholdFinances.Data;
     using HouseholdFinances.Services.DataServices.Contracts;
     using HouseholdFinances.Services.DataServices.Models.Capital;
-    using HouseholdFinances.Data.Models.Capital;
-    using FamilyIncomeExpences.Data.Models.Capital;
 
     [Route("api/[controller]")]
     [ApiController]

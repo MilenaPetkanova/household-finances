@@ -1,19 +1,16 @@
-﻿namespace FamilyIncomeExpences.Data.Models.Capital
+﻿namespace HouseholdFinances.Data.Models.Capital
 {
-    using HouseholdFinances.Data.Models.Capital;
     using System;
 
-    public class Capital : BaseCapital
+    public class Capital : BaseModel
     {
-        public int Id { get; set; }
+        public decimal Cash { get; set; }
 
-        public override decimal Cash { get; set; }
+        public decimal DebitCardFirst { get; set; }
 
-        public override decimal DebitCardFirst { get; set; }
+        public decimal DebitCardSecond { get; set; }
 
-        public override decimal DebitCardSecond { get; set; }
-
-        public override decimal DebitCardThird { get; set; }
+        public decimal DebitCardThird { get; set; }
 
         public decimal Total { get; set; }
 

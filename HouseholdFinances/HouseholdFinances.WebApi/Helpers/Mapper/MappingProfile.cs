@@ -1,9 +1,8 @@
 ﻿namespace HouseholdFinances.Web.Helpers.Mapper
 {
-    using AutoMapper;
-    using FamilyIncomeExpences.Data.Models.Capital;
     using HouseholdFinances.Data.Models.Capital;
     using HouseholdFinances.Services.DataServices.Models.Capital;
+    using AutoMapper;
 
     public class MappingProfile : Profile
     {

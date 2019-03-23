@@ -1,7 +1,7 @@
 ﻿namespace HouseholdFinances.Data
 {
-    using FamilyIncomeExpences.Data.Models.Capital;
     using Microsoft.EntityFrameworkCore;
+    using HouseholdFinances.Data.Models.Capital;
 
     public class HouseholdFinancesContext : DbContext
     {
