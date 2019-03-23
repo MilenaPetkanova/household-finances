@@ -4,14 +4,16 @@ using HouseholdFinances.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HouseholdFinances.Data.Migrations
 {
     [DbContext(typeof(HouseholdFinancesContext))]
-    partial class HouseholdFinancesContextModelSnapshot : ModelSnapshot
+    [Migration("20190323172434_CreateTableExpenses")]
+    partial class CreateTableExpenses
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
