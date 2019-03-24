@@ -1,9 +1,11 @@
-﻿namespace HouseholdFinances.Data.Models.Expense
+﻿namespace HouseholdFinances.Services.DataServices.Models.Expense
 {
     using System;
 
-    public class Expense : BaseModel
+    public class ExpenseDto
     {
+        public int Id { get; set; }
+
         public decimal Food { get; set; }
 
         public decimal PinMoney { get; set; }

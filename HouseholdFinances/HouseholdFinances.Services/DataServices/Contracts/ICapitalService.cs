@@ -1,9 +1,9 @@
-﻿using HouseholdFinances.Services.DataServices.Models.Capital;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace HouseholdFinances.Services.DataServices.Contracts
+﻿namespace HouseholdFinances.Services.DataServices.Contracts
 {
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using HouseholdFinances.Services.DataServices.Models.Capital;
+
     public interface ICapitalService
     {
         Task<IEnumerable<CapitalDto>> GetAllAsync();

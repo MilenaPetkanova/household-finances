@@ -21,7 +21,7 @@ namespace HouseholdFinances.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("FamilyIncomeExpences.Data.Models.Capital.Capital", b =>
+            modelBuilder.Entity("HouseholdFinances.Data.Models.Capital.Capital", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
